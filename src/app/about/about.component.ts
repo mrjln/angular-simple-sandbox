@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+itemCount: number = 4;
+
   constructor() { }
 
   ngOnInit() {
