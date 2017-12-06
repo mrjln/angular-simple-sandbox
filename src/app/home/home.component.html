@@ -6,7 +6,7 @@
     <p>Jouw lijst ({{itemCount}})</p>
   </div>
 </div>
-<div class="container color-light [@goals]">
+<div class="container color-light" [@goals]="goals.length">
   <div class="col">
     <p class="sm"> Gebruik het onderstaande formulier om een item aan de lijst toe te voegen</p>
     <form>
@@ -16,7 +16,7 @@
     </form>
   </div>
   <div class="col">
-    <p class="life-container" *ngFor="let goal of goals">
+    <p class="life-container" *ngFor="let goal of goals; let i=index" (click)="removeItem(i)">
       {{goal}}
     </p>
   </div>
