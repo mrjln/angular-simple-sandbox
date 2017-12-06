@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, style, transition, animate, keyframe, query, stagger} from '@angular/animations'
+import { trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,8 +8,14 @@ import { trigger, style, transition, animate, keyframe, query, stagger} from '@a
     trigger('goals', [
       //this is were the animation specific function will reside
       transition('*=>*',[
-        query(':enter', style({opacity:0}), {optional: true})
-
+        query(':enter', style({ opacity:0 }), { optional: true }),
+        query(':enter', stagger('300ms', [
+          animate('.6s ease-in', keyframes([
+            style({opacity: 0, transform:'translateY(-75%)', offset: 0}),
+            style({opacity: 0.5, transform:'translateY(35px)', offset: .3}),
+            style({opacity: 1, transform:'translateY(0)', offset: 1}),
+          ]))
+        ]), { optional: true })
       ])
     ])
   ]
