@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-about',
@@ -8,10 +9,11 @@ import {Router} from '@angular/router';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor( private router: Router, private _data: DataService) {
 }
 
   ngOnInit() {
+  
   }
 
 }
