@@ -7,7 +7,6 @@ export class DataService {
 private goals = new BehaviorSubject<any>(['The initial goal', 'Another silly goal']);
 goal = this.goals.asObservable();
 
-
   constructor() { }
 
   changeGoal(goal) {

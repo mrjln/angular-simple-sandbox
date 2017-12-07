@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations'
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -31,14 +32,15 @@ import { trigger, style, transition, animate, keyframes, query, stagger} from '@
 export class HomeComponent implements OnInit {
 itemCount: number;
 goalText: string = 'My first lifegoal';
-goals = ["goal 1", "goal 2"];
+goals = [];
 
 
-  constructor() { }
+  constructor(private _data = DataService ) { }
 
   ngOnInit() {
   this.itemCount = this.goals.length;
-
+  this._data.goal.subscribe(res => this.goals = res);
+  this._data.changeGoal(this.goals);
   }
 
   addItem(){
@@ -46,10 +48,13 @@ goals = ["goal 1", "goal 2"];
     this.goalText= "";
     //clear out the input after it is submitted
     this.itemCount = this.goals.length;
+    this._data.changeGoal(this.goals);
+
   }
 
   removeItem(i){
     this.goals.splice(i,1);
+    this._data.changeGoal(this.goals);
   }
 
 }
