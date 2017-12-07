@@ -9,10 +9,13 @@ import {DataService} from '../data.service';
 })
 export class AboutComponent implements OnInit {
 
+  goals: any;
+
   constructor( private router: Router, private _data: DataService) {
 }
 
   ngOnInit() {
+    this._data.goal.subscribe(res => this.goals = res);
   
   }
 

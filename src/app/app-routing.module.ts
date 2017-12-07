@@ -6,12 +6,10 @@ import { AboutComponent} from './about/about.component';
 
 const routes: Routes = [
   {
-    pathMatch: 'full',
     path:'',
     component: HomeComponent,
   },
   {
-    pathMatch: 'full',
     path:'about',
     component: AboutComponent,
   }
