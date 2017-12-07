@@ -35,7 +35,7 @@ goalText: string = 'My first lifegoal';
 goals = [];
 
 
-  constructor(private _data = DataService ) { }
+  constructor(private _data: DataService ) { }
 
   ngOnInit() {
   this.itemCount = this.goals.length;
